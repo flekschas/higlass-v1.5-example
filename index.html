@@ -61,6 +61,66 @@
   text-decoration: none;
   box-shadow: 0 1px 0 0 #abe1ff;
 }
+
+#demo2 .react-grid-layout,
+#demo2 .react-grid-item,
+#demo2 .tiled-plot-div,
+#demo2 .horizontal-tiled-plot {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+#demo2 .react-grid-item:before {
+  content: 'margin';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: #bbb;
+}
+#demo2 .tiled-plot-div {
+  background: rgba(0, 0, 0, 0.1);
+}
+#demo2 .tiled-plot-div:before {
+  content: 'padding';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: #bbb;
+}
+#demo2 .top-track-container:before {
+  content: 'Top tracks';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(1) .top-track-container {
+  background: rgba(0, 0, 255, 0.1);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(1) .top-track-container:before {
+  color: rgba(0, 0, 255, 0.5);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(2) .top-track-container {
+  background: rgba(115, 221, 208, 0.1);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(2) .top-track-container:before {
+  color: rgba(115, 221, 208, 0.5);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(3) .top-track-container {
+  background: rgba(255, 0, 0, 0.1);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(3) .top-track-container:before {
+  color: rgba(255, 0, 0, 0.5);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(4) .top-track-container {
+  background: rgba(242, 169, 59, 0.1);
+}
+#demo2 .react-grid-layout > .react-grid-item:nth-child(4) .top-track-container:before {
+  color: rgba(242, 169, 59, 0.5);
+}
 </style>
 
 <script crossorigin src='https://unpkg.com/react@16/umd/react.development.js'></script>
@@ -128,12 +188,6 @@ const viewConfig = {
               labelPosition: 'hidden',
               minusStrandColor: 'black',
               fontSize: 11,
-              labelLeftMargin: 0,
-              labelRightMargin: 0,
-              labelTopMargin: 0,
-              labelBottomMargin: 0,
-              trackBorderWidth: 0,
-              trackBorderColor: 'black',
               showMousePosition: true,
               showGlobalMousePosition: true,
               mousePositionColor: '#000000',
@@ -158,13 +212,6 @@ const viewConfig = {
               labelPosition: 'topLeft',
               labelColor: 'black',
               axisPositionHorizontal: 'right',
-              labelLeftMargin: 0,
-              labelRightMargin: 0,
-              labelTopMargin: 0,
-              labelBottomMargin: 0,
-              axisLabelFormatting: 'scientific',
-              trackBorderWidth: 0,
-              trackBorderColor: 'black',
               labelTextOpacity: 0.4,
               showMousePosition: true,
               showGlobalMousePosition: true,
@@ -188,13 +235,6 @@ const viewConfig = {
               labelPosition: 'topLeft',
               labelColor: 'black',
               axisPositionHorizontal: 'right',
-              labelLeftMargin: 0,
-              labelRightMargin: 0,
-              labelTopMargin: 0,
-              labelBottomMargin: 0,
-              axisLabelFormatting: 'scientific',
-              trackBorderWidth: 0,
-              trackBorderColor: 'black',
               labelTextOpacity: 0.4,
               showMousePosition: true,
               showGlobalMousePosition: true,
@@ -218,12 +258,6 @@ const viewConfig = {
               labelPosition: 'topLeft',
               labelColor: 'black',
               axisPositionHorizontal: 'right',
-              labelLeftMargin: 0,
-              labelRightMargin: 0,
-              labelTopMargin: 0,
-              labelBottomMargin: 0,
-              axisLabelFormatting: 'scientific',
-              trackBorderWidth: 0,
               trackBorderColor: 'black',
               labelTextOpacity: 0.4,
               showMousePosition: true,
@@ -248,12 +282,6 @@ const viewConfig = {
               labelPosition: 'topLeft',
               labelColor: 'black',
               axisPositionHorizontal: 'right',
-              labelLeftMargin: 0,
-              labelRightMargin: 0,
-              labelTopMargin: 0,
-              labelBottomMargin: 0,
-              axisLabelFormatting: 'scientific',
-              trackBorderWidth: 0,
               trackBorderColor: 'black',
               labelTextOpacity: 0.4,
               showMousePosition: true,
@@ -329,6 +357,297 @@ const viewConfig = {
   ]
 };
 
+const viewConfAdjustViewSpacing = {
+  editable: false,
+  zoomFixed: false,
+  trackSourceServers: [
+    'http://higlass.io/api/v1'
+  ],
+  exportViewUrl: 'http://higlass.io/api/v1/viewconfs/',
+  views: [
+    {
+      uid: 'a',
+      initialXDomain: [2540500000, 2541000000],
+      tracks: {
+        top: [
+          {
+            uid: 'chroms1',
+            height: 16,
+            chromInfoPath: '//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv',
+            type: 'horizontal-chromosome-labels',
+            options: {
+              color: '#777777',
+              stroke: '#FFFFFF',
+              fontSize: 10,
+              fontIsLeftAligned: true,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+          {
+            uid: 'genes1',
+            tilesetUid: 'OHJakQICQD6gTD7skx4EWA',
+            height: 24,
+            server: '//higlass.io/api/v1',
+            type: 'horizontal-gene-annotations',
+            options: {
+              plusStrandColor: 'black',
+              labelPosition: 'hidden',
+              minusStrandColor: 'black',
+              fontSize: 11,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+              geneAnnotationHeight: 10,
+              geneLabelPosition: 'outside',
+              geneStrandSpacing: 4
+            },
+          },
+          {
+            uid: 'bar1',
+            server: '//higlass.io/api/v1',
+            tilesetUid: 'PjIJKXGbSNCalUZO21e_HQ',
+            type: 'horizontal-bar',
+            height: 36,
+            options: {
+              barFillColor: 'blue',
+              zeroLineVisible: true,
+              zeroLineOpacity: 0.33,
+              valueScaleMin: 0,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+        ],
+        left: [],
+        center: [],
+        right: [],
+        bottom: []
+      },
+      layout: {
+        w: 12,
+        h: 0,
+        x: 0,
+        y: 0,
+        moved: false,
+        static: false
+      }
+    },
+    {
+      uid: 'b',
+      initialXDomain: [2540500000, 2541000000],
+      tracks: {
+        top: [
+          {
+            uid: 'chroms2',
+            height: 16,
+            chromInfoPath: '//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv',
+            type: 'horizontal-chromosome-labels',
+            options: {
+              color: '#777777',
+              stroke: '#FFFFFF',
+              fontSize: 10,
+              fontIsLeftAligned: true,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+          {
+            uid: 'genes2',
+            tilesetUid: 'OHJakQICQD6gTD7skx4EWA',
+            height: 24,
+            server: '//higlass.io/api/v1',
+            type: 'horizontal-gene-annotations',
+            options: {
+              plusStrandColor: 'black',
+              labelPosition: 'hidden',
+              minusStrandColor: 'black',
+              fontSize: 11,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+              geneAnnotationHeight: 10,
+              geneLabelPosition: 'outside',
+              geneStrandSpacing: 4
+            },
+          },
+          {
+            uid: 'bar2',
+            server: '//higlass.io/api/v1',
+            tilesetUid: 'PdAaSdibTLK34hCw7ubqKA',
+            type: 'horizontal-bar',
+            height: 36,
+            options: {
+              barFillColor: 'turquoise',
+              zeroLineVisible: true,
+              zeroLineOpacity: 0.33,
+              valueScaleMin: 0,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+        ],
+        left: [],
+        center: [],
+        right: [],
+        bottom: []
+      },
+      layout: {
+        w: 12,
+        h: 0,
+        x: 0,
+        y: 0,
+        moved: false,
+        static: false
+      }
+    },
+    {
+      uid: 'c',
+      initialXDomain: [2540500000, 2541000000],
+      tracks: {
+        top: [
+          {
+            uid: 'chroms3',
+            height: 16,
+            chromInfoPath: '//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv',
+            type: 'horizontal-chromosome-labels',
+            options: {
+              color: '#777777',
+              stroke: '#FFFFFF',
+              fontSize: 10,
+              fontIsLeftAligned: true,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+          {
+            uid: 'genes3',
+            tilesetUid: 'OHJakQICQD6gTD7skx4EWA',
+            height: 24,
+            server: '//higlass.io/api/v1',
+            type: 'horizontal-gene-annotations',
+            options: {
+              plusStrandColor: 'black',
+              labelPosition: 'hidden',
+              minusStrandColor: 'black',
+              fontSize: 11,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+              geneAnnotationHeight: 10,
+              geneLabelPosition: 'outside',
+              geneStrandSpacing: 4
+            },
+          },
+          {
+            uid: 'bar3',
+            server: '//higlass.io/api/v1',
+            tilesetUid: 'e0DYtZBSTqiMLHoaimsSpg',
+            type: 'horizontal-bar',
+            height: 36,
+            options: {
+              barFillColor: 'red',
+              zeroLineVisible: true,
+              zeroLineOpacity: 0.33,
+              valueScaleMin: 0,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+        ],
+        left: [],
+        center: [],
+        right: [],
+        bottom: []
+      },
+      layout: {
+        w: 12,
+        h: 0,
+        x: 0,
+        y: 0,
+        moved: false,
+        static: false
+      }
+    },
+    {
+      uid: 'd',
+      initialXDomain: [2540500000, 2541000000],
+      tracks: {
+        top: [
+          {
+            uid: 'chroms4',
+            height: 16,
+            chromInfoPath: '//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv',
+            type: 'horizontal-chromosome-labels',
+            options: {
+              color: '#777777',
+              stroke: '#FFFFFF',
+              fontSize: 10,
+              fontIsLeftAligned: true,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+          {
+            uid: 'genes4',
+            tilesetUid: 'OHJakQICQD6gTD7skx4EWA',
+            height: 24,
+            server: '//higlass.io/api/v1',
+            type: 'horizontal-gene-annotations',
+            options: {
+              plusStrandColor: 'black',
+              labelPosition: 'hidden',
+              minusStrandColor: 'black',
+              fontSize: 11,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+              geneAnnotationHeight: 10,
+              geneLabelPosition: 'outside',
+              geneStrandSpacing: 4
+            },
+          },
+          {
+            uid: 'bar4',
+            server: '//higlass.io/api/v1',
+            tilesetUid: 'cE0nGyd0Q_yVYSyBUe89Ww',
+            type: 'horizontal-bar',
+            height: 36,
+            options: {
+              barFillColor: 'orange',
+              zeroLineVisible: true,
+              zeroLineOpacity: 0.33,
+              valueScaleMin: 0,
+              showMousePosition: true,
+              showGlobalMousePosition: true,
+              mousePositionColor: '#000000',
+            }
+          },
+        ],
+        left: [],
+        center: [],
+        right: [],
+        bottom: []
+      },
+      layout: {
+        w: 12,
+        h: 0,
+        x: 0,
+        y: 0,
+        moved: false,
+        static: false
+      }
+    }
+  ]
+};
+
 const hgApi1 = hglib.viewer(
   document.getElementById('demo1'),
   viewConfig,
@@ -340,9 +659,19 @@ const hgApi1 = hglib.viewer(
 
 const hgApi2 = hglib.viewer(
   document.getElementById('demo2'),
-  viewConfig,
+  viewConfAdjustViewSpacing,
   {
-    bounded: true,
+    pixelPreciseMarginPadding: true,
+    containerPaddingX: 0,
+    containerPaddingY: 0,
+    viewMarginTop: 32,
+    viewMarginBottom: 6,
+    viewMarginLeft: 32,
+    viewMarginRight: 6,
+    viewPaddingTop: 32,
+    viewPaddingBottom: 6,
+    viewPaddingLeft: 32,
+    viewPaddingRight: 6,
     globalMousePosition: true,
   },
 );
