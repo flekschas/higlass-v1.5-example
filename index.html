@@ -10,7 +10,7 @@
 <style type='text/css'>
 #left {
   position: absolute;
-  top: 0;
+  top: 3rem;
   right: 50vw;
   bottom: 0;
   left: 0;
@@ -26,7 +26,7 @@
 }
 #right {
   position: absolute;
-  top: 0;
+  top: 3rem;
   right: 0;
   bottom: 0;
   left: 50vw;
@@ -40,6 +40,27 @@
   right: 1rem;
   overflow: hidden;
 }
+#note {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 3rem;
+  padding: 1rem;
+  color: white;
+  line-height: 1rem;
+  background: black;
+}
+#note a {
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+#note a:hover {
+  color: #abe1ff;
+  text-decoration: none;
+  box-shadow: 0 1px 0 0 #abe1ff;
+}
 </style>
 
 <script crossorigin src='https://unpkg.com/react@16/umd/react.development.js'></script>
@@ -49,6 +70,9 @@
 <script crossorigin src='https://unpkg.com/higlass@1.5/dist/hglib.min.js'></script>
 </head>
 <body>
+  <div id="note">
+    <a href="." target="_blank">Click here to open the same page in a new browser window</a> and see your cursor location in both windows. Source code is <a href="https://github.com/flekschas/higlass-v1.5-example" target="_blank">available on GitHub</a>.
+  </div>
   <div id='left'>
     <div id='demo1'></div>
   </div>
