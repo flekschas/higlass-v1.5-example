@@ -121,6 +121,10 @@
 #demo2 .react-grid-layout > .react-grid-item:nth-child(4) .top-track-container:before {
   color: rgba(242, 169, 59, 0.5);
 }
+  
+#between-contexts-warning {
+  display: hidden;
+}
 </style>
 
 <script crossorigin src='https://unpkg.com/react@16/umd/react.development.js'></script>
@@ -131,7 +135,9 @@
 </head>
 <body>
   <div id="note">
-    <a href="." target="_blank">Click here to open the same page in a new browser window</a> and see your cursor location in both windows. Source code is <a href="https://github.com/flekschas/higlass-v1.5-example" target="_blank">available on GitHub</a>.
+    <span id="between-contexts"><a href="." target="_blank">Click here to open the same page in a new browser window</a> and see your cursor location in both windows.</span>
+    <span id="between-contexts-warning">Sorry, <a href="https://caniuse.com/#feat=broadcastchannel" target="_blank">your browser does not support modern cross-browser communication</a>. Use Chrome or Firefox.</span>
+    Source code is <a href="https://github.com/flekschas/higlass-v1.5-example" target="_blank">available on GitHub</a>.
   </div>
   <div id='left'>
     <div id='demo1'></div>
@@ -647,6 +653,11 @@ const viewConfAdjustViewSpacing = {
     }
   ]
 };
+  
+if (!window.BroadcastChannel) {
+  document.querySelector("#between-contexts").style.display = "hidden";
+  document.querySelector("#between-contexts-warning").style.display = "inline";
+}
 
 const hgApi1 = hglib.viewer(
   document.getElementById('demo1'),
